@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: calc(100vh - 74px);
+        }
+
+        .sidebar {
+            background-color: var(--bg-card);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1rem;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background-color: var(--bg-body);
+            color: var(--primary);
+        }
+
+        .main-content {
+            padding: 2rem;
+            background-color: var(--bg-body);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--bg-body);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo"><i class='bx bx-code-block'></i> IT SQUAD <span
+                    style="font-size: 0.7rem; background: var(--accent); color: white; padding: 2px 6px; border-radius: 4px; margin-left: 5px;">ADMIN</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Home <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li class="dropdown">
+                        <a href="admin-dashboard.html" class="active">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile flex items-center gap-1">
+                <span>Admin User</span>
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=F43F5E&color=fff" alt="User"
+                    style="width: 32px; height: 32px; border-radius: 50%;">
+                <div class="controls" style="margin-left: 1rem;">
+                    <button id="rtl-toggle" class="btn btn-outline"
+                        style="padding: 5px 10px; font-size: 0.8rem;">🌐RTL</button>
+                    <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" class="active"><i class='bx bx-grid-alt'></i> Overview</a>
+                <a href="#"><i class='bx bx-ticket'></i> All Tickets</a>
+                <a href="#"><i class='bx bx-user-pin'></i> Users</a>
+                <a href="#"><i class='bx bx-cog'></i> Settings</a>
+                <a href="index.html"><i class='bx bx-log-out'></i> Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
+                <h2>System Overview</h2>
+                <div class="flex gap-1">
+                    <button class="btn btn-outline" style="font-size: 0.9rem;">Download Report</button>
+                    <button class="btn btn-primary" style="font-size: 0.9rem;">System Settings</button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="card" style="padding: 1.5rem;">
+                    <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Total Tickets</div>
+                    <div style="font-size: 2rem; font-weight: 700;">1,248</div>
+                    <div style="color: #22c55e; font-size: 0.85rem; margin-top: 0.5rem;"><i
+                            class='bx bx-up-arrow-alt'></i> 12% from last month</div>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Avg. Response Time
+                    </div>
+                    <div style="font-size: 2rem; font-weight: 700;">15m</div>
+                    <div style="color: #22c55e; font-size: 0.85rem; margin-top: 0.5rem;">-2m from avg</div>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Active Agents</div>
+                    <div style="font-size: 2rem; font-weight: 700;">24</div>
+                    <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Online now</div>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Client Satisfaction
+                    </div>
+                    <div style="font-size: 2rem; font-weight: 700;">4.8/5</div>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-top: 0.5rem;">Based on 500 reviews</div>
+                </div>
+            </div>
+
+            <!-- System Health & Ticket Volume -->
+            <div class="grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div class="card">
+                    <h3>Server Load & Health</h3>
+                    <div style="margin-top: 1.5rem;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>CPU Usage</span>
+                                <span>45%</span>
+                            </div>
+                            <div style="width: 100%; height: 8px; background: var(--border); border-radius: 4px;">
+                                <div
+                                    style="width: 45%; height: 100%; background: var(--secondary); border-radius: 4px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Memory Usage</span>
+                                <span>62%</span>
+                            </div>
+                            <div style="width: 100%; height: 8px; background: var(--border); border-radius: 4px;">
+                                <div style="width: 62%; height: 100%; background: var(--primary); border-radius: 4px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Disk Space (SSD)</span>
+                                <span>78%</span>
+                            </div>
+                            <div style="width: 100%; height: 8px; background: var(--border); border-radius: 4px;">
+                                <div style="width: 78%; height: 100%; background: var(--accent); border-radius: 4px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Incoming Ticket Volume</h3>
+                    <div
+                        style="display: flex; align-items: flex-end; justify-content: space-between; height: 165px; padding-top: 1rem; margin-top: 1rem;">
+                        <div style="width: 30px; background: var(--primary); height: 40%; border-radius: 4px;"></div>
+                        <div style="width: 30px; background: var(--primary); height: 60%; border-radius: 4px;"></div>
+                        <div style="width: 30px; background: var(--primary); height: 80%; border-radius: 4px;"></div>
+                        <div style="width: 30px; background: var(--primary); height: 50%; border-radius: 4px;"></div>
+                        <div style="width: 30px; background: var(--primary); height: 90%; border-radius: 4px;"></div>
+                        <div style="width: 30px; background: var(--primary); height: 75%; border-radius: 4px;"></div>
+                        <div style="width: 30px; background: var(--primary); height: 45%; border-radius: 4px;"></div>
+                        <div style="width: 30px; background: var(--primary); height: 65%; border-radius: 4px;"></div>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.8rem;">
+                        <span>8am</span><span>10am</span><span>12pm</span><span>2pm</span><span>4pm</span><span>6pm</span><span>8pm</span><span>10pm</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extra Charts Row -->
+            <div class="grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div class="card">
+                    <h3>User Growth</h3>
+                    <div
+                        style="display: flex; align-items: flex-end; justify-content: space-between; height: 180px; padding: 1rem 0; border-bottom: 1px solid var(--border);">
+                        <div style="width: 15px; background: var(--secondary); height: 20%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 25%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 35%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 40%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 50%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 65%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 70%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 60%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 80%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 85%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 90%; border-radius: 4px;"></div>
+                        <div style="width: 15px; background: var(--secondary); height: 100%; border-radius: 4px;"></div>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.8rem;">
+                        <span>Jan</span><span>Dec</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SLA Compliance</h3>
+                    <div
+                        style="display: flex; justify-content: center; align-items: center; height: 100%; min-height: 200px;">
+                        <div style="width: 100%; max-width: 300px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span>Gold SLA (99.9%)</span>
+                                <span style="color: #22c55e; font-weight: 700;">100%</span>
+                            </div>
+                            <div
+                                style="width: 100%; height: 10px; background: var(--border); border-radius: 5px; margin-bottom: 1.5rem;">
+                                <div style="width: 100%; height: 100%; background: #22c55e; border-radius: 5px;"></div>
+                            </div>
+
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span>Silver SLA (99.0%)</span>
+                                <span style="color: #f59e0b; font-weight: 700;">98.5%</span>
+                            </div>
+                            <div
+                                style="width: 100%; height: 10px; background: var(--border); border-radius: 5px; margin-bottom: 1.5rem;">
+                                <div style="width: 98.5%; height: 100%; background: #f59e0b; border-radius: 5px;"></div>
+                            </div>
+
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span>Bronze SLA (98.0%)</span>
+                                <span style="color: #f43f5e; font-weight: 700;">97.2%</span>
+                            </div>
+                            <div
+                                style="width: 100%; height: 10px; background: var(--border); border-radius: 5px; margin-bottom: 1rem;">
+                                <div style="width: 97.2%; height: 100%; background: #f43f5e; border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent Performance Table -->
+            <div style="margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 1rem;">Top Performing Agents</h3>
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Agent Name</th>
+                                    <th>Tickets Resolved</th>
+                                    <th>Avg Rating</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%;">
+                                        </div> Dwight S.
+                                    </td>
+                                    <td>142</td>
+                                    <td><span style="color: #f59e0b;">★★★★★</span> 4.9</td>
+                                    <td><span style="color: #22c55e; font-size: 0.8rem; font-weight: 700;">ONLINE</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%;">
+                                        </div> Jim H.
+                                    </td>
+                                    <td>98</td>
+                                    <td><span style="color: #f59e0b;">★★★★☆</span> 4.7</td>
+                                    <td><span style="color: #f59e0b; font-size: 0.8rem; font-weight: 700;">AWAY</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%;">
+                                        </div> Pam B.
+                                    </td>
+                                    <td>85</td>
+                                    <td><span style="color: #f59e0b;">★★★★★</span> 4.8</td>
+                                    <td><span style="color: #22c55e; font-size: 0.8rem; font-weight: 700;">ONLINE</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Tickets -->
+            <h3>Recent Activity</h3>
+            <div class="table-responsive" style="margin-top: 1rem;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Ticket</th>
+                            <th>Agent</th>
+                            <th>Status</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Michael Scott</td>
+                            <td>Printer Malfunction</td>
+                            <td>Dwight S.</td>
+                            <td><span style="color: #f59e0b;">In Progress</span></td>
+                            <td>2 mins ago</td>
+                        </tr>
+                        <tr>
+                            <td>Jim Halpert</td>
+                            <td>Network Lag</td>
+                            <td>Pam B.</td>
+                            <td><span style="color: #0ea5e9;">New</span></td>
+                            <td>15 mins ago</td>
+                        </tr>
+                        <tr>
+                            <td>Stanley Hudson</td>
+                            <td>Monitor Issue</td>
+                            <td>Toby F.</td>
+                            <td><span style="color: #22c55e;">Resolved</span></td>
+                            <td>1 hr ago</td>
+                        </tr>
+                        <tr>
+                            <td>Andy Bernard</td>
+                            <td>Forgot Password</td>
+                            <td>Erin H.</td>
+                            <td><span style="color: #22c55e;">Resolved</span></td>
+                            <td>2 hrs ago</td>
+                        </tr>
+                        <tr>
+                            <td>Angela Martin</td>
+                            <td>Cat picture upload failed</td>
+                            <td>Dwight S.</td>
+                            <td><span style="color: #f43f5e;">Rejected</span></td>
+                            <td>3 hrs ago</td>
+                        </tr>
+                        <tr>
+                            <td>Kevin Malone</td>
+                            <td>Cookies not working</td>
+                            <td>Oscar M.</td>
+                            <td><span style="color: #0ea5e9;">New</span></td>
+                            <td>4 hrs ago</td>
+                        </tr>
+                        <tr>
+                            <td>Creed Bratton</td>
+                            <td>Confidential data request</td>
+                            <td>Toby F.</td>
+                            <td><span style="color: #f43f5e;">Flagged</span></td>
+                            <td>5 hrs ago</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            /* Full screen centered login */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            padding: 2rem;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <div class="card login-card">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="index.html" class="logo justify-center" style="margin-bottom: 1rem;">
+                    <i class='bx bx-code-block'></i> IT SQUAD
+                </a>
+                <h2>Welcome Back</h2>
+                <p style="color: var(--text-muted);">Please sign in to your account</p>
+            </div>
+
+            <form action="user-dashboard.html">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                    <input type="email" class="btn"
+                        style="width: 100%; text-align: left; background: var(--bg-body); border: 1px solid var(--border);"
+                        placeholder="user@example.com">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Password</label>
+                    <input type="password" class="btn"
+                        style="width: 100%; text-align: left; background: var(--bg-body); border: 1px solid var(--border);"
+                        placeholder="••••••••">
+                </div>
+
+                <div class="flex justify-between items-center" style="margin-bottom: 2rem; font-size: 0.9rem;">
+                    <label class="flex items-center gap-1">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" style="color: var(--primary);">Forgot Password?</a>
+                </div>
+
+                <div class="flex gap-1" style="flex-direction: column;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                    <a href="admin-dashboard.html" class="btn btn-outline"
+                        style="width: 100%; text-align: center;">Admin Demo</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .error-page {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo"><i class='bx bx-code-block'></i> IT SQUAD</a>
+            <div class="controls">
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐RTL</button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="error-page container">
+        <div class="error-code">404</div>
+        <h1 style="margin-bottom: 1rem;">Page Not Found</h1>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 500px;">The page you are looking for might
+            have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>
