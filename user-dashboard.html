@@ -8,38 +8,45 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
+        body {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-body);
+        }
+
         .dashboard-container {
             display: grid;
             grid-template-columns: 250px 1fr;
-            min-height: calc(100vh - 74px);
+            flex: 1;
+            min-height: 0;
+            /* Crucial for nested scrollbars */
+            width: 100%;
+            overflow: hidden;
         }
 
         .sidebar {
             background-color: var(--bg-card);
             border-right: 1px solid var(--border);
             padding: 2rem 1rem;
-        }
-
-        .sidebar-menu a {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            border-radius: 8px;
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .sidebar-menu a:hover,
-        .sidebar-menu a.active {
-            background-color: var(--bg-body);
-            color: var(--primary);
+            overflow-y: auto;
+            height: 100%;
+            /* Explicitly enforce desktop state */
+            position: static;
+            transform: none;
+            display: block;
+            width: auto;
+            z-index: auto;
         }
 
         .main-content {
             padding: 2rem;
             background-color: var(--bg-body);
+            overflow-y: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .table-responsive {
@@ -53,6 +60,23 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background-color: var(--bg-body);
+            color: var(--primary);
         }
 
         th,
@@ -95,7 +119,57 @@
             }
 
             .sidebar {
+                position: fixed;
+                left: 0;
+                top: 74px;
+                bottom: 0;
+                width: 250px;
+                z-index: 1000;
+                background-color: var(--bg-card);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                display: block;
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+                will-change: transform;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .sidebar-overlay {
+                position: fixed;
+                top: 74px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
                 display: none;
+                backdrop-filter: blur(2px);
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+        }
+
+        /* HARD SAFEGUARD: Force desktop layout on larger screens */
+        @media(min-width: 769px) {
+            .dashboard-container {
+                grid-template-columns: 250px 1fr !important;
+            }
+
+            .sidebar {
+                position: static !important;
+                transform: none !important;
+                display: block !important;
+                width: auto !important;
+                box-shadow: none !important;
+            }
+
+            .sidebar-overlay {
+                display: none !important;
             }
         }
     </style>
@@ -116,6 +190,7 @@
                     </li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
+
                     <li class="dropdown">
                         <a href="user-dashboard.html" class="active">Dashboard <i class='bx bx-chevron-down'></i></a>
                         <div class="dropdown-content">
@@ -132,7 +207,7 @@
                     style="width: 32px; height: 32px; border-radius: 50%;">
                 <div class="controls" style="margin-left: 1rem;">
                     <button id="rtl-toggle" class="btn btn-outline"
-                        style="padding: 5px 10px; font-size: 0.8rem;">🌐RTL</button>
+                        style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
                     <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
                 </div>
             </div>
@@ -149,6 +224,7 @@
                 <a href="index.html"><i class='bx bx-log-out'></i> Logout</a>
             </div>
         </aside>
+        <div class="sidebar-overlay"></div>
 
         <main class="main-content">
             <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
@@ -161,7 +237,7 @@
                 style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                 <div class="card flex items-center gap-1" style="padding: 1.5rem;">
                     <div
-                        style="width: 48px; height: 48px; border-radius: 50%; background: rgba(79, 70, 229, 0.1); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.5rem;">
+                        style="width: 48px; height: 48px; border-radius: 50%; background: rgba(79, 70, 229, 0.2); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.5rem;">
                         <i class='bx bx-ticket'></i>
                     </div>
                     <div>
@@ -171,7 +247,7 @@
                 </div>
                 <div class="card flex items-center gap-1" style="padding: 1.5rem;">
                     <div
-                        style="width: 48px; height: 48px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); display: flex; align-items: center; justify-content: center; color: #f59e0b; font-size: 1.5rem;">
+                        style="width: 48px; height: 48px; border-radius: 50%; background: rgba(245, 158, 11, 0.2); display: flex; align-items: center; justify-content: center; color: #f59e0b; font-size: 1.5rem;">
                         <i class='bx bx-time'></i>
                     </div>
                     <div>
@@ -181,7 +257,7 @@
                 </div>
                 <div class="card flex items-center gap-1" style="padding: 1.5rem;">
                     <div
-                        style="width: 48px; height: 48px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); display: flex; align-items: center; justify-content: center; color: #22c55e; font-size: 1.5rem;">
+                        style="width: 48px; height: 48px; border-radius: 50%; background: rgba(34, 197, 94, 0.2); display: flex; align-items: center; justify-content: center; color: #22c55e; font-size: 1.5rem;">
                         <i class='bx bx-check-circle'></i>
                     </div>
                     <div>
@@ -326,6 +402,36 @@
                     <div
                         style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.8rem;">
                         <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                    </div>
+                </div>
+
+                <!-- New User Chart -->
+                <div class="card">
+                    <h3>Request Types</h3>
+                    <div style="display: flex; justify-content: center; margin-top: 1rem;">
+                        <div
+                            style="width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(var(--info) 0% 40%, var(--purple) 40% 70%, var(--teal) 70% 100%); position: relative;">
+                            <div
+                                style="position: absolute; width: 140px; height: 140px; background: var(--bg-card); border-radius: 50%; top: 30px; left: 30px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                <span style="font-size: 1.5rem; font-weight: 700;">Top 3</span>
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">Categories</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; font-size: 0.85rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <div style="width: 10px; height: 10px; background: var(--info); border-radius: 50%;">
+                            </div> Hardware
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <div style="width: 10px; height: 10px; background: var(--purple); border-radius: 50%;">
+                            </div> Software
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <div style="width: 10px; height: 10px; background: var(--teal); border-radius: 50%;">
+                            </div> Network
+                        </div>
                     </div>
                 </div>
             </div>

@@ -20,6 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateRtlButton(dir) {
         if (!rtlBtn) return;
-        rtlBtn.innerHTML = dir === 'ltr' ? '🌐RTL' : '🌐LTR';
+        rtlBtn.innerHTML = dir === 'ltr' ? '🌐' : '🌐';
     }
 });
