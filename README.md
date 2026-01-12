@@ -32,5 +32,6 @@ Root folder/
 - rtltoggle.js
 - style.css
 - ...
-Assets/
-(Put all images in jpg format)
+Assets/(images)
+
+
