@@ -55,7 +55,9 @@
 <body>
     <header>
         <div class="container flex justify-between items-center">
-            <a href="index.html" class="logo"><i class='bx bx-code-block'></i> IT SQUAD</a>
+            <a href="index.html" class="logo">
+                <i class='bx bx-code-block'></i> IT SQUAD
+            </a>
             <nav>
                 <ul class="nav-links">
                     <li class="dropdown">
@@ -76,13 +78,13 @@
                         </div>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
-                    </li>
+                    <li><a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a></li>
+                    <li><a href="register.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Sign
+                            Up</a></li>
                 </ul>
             </nav>
             <div class="controls">
-                <button id="rtl-toggle" class="btn btn-outline"
-                    style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="rtl-toggle" class="btn-icon-animate" title="RTL Toggle"><i class='bx bx-globe'></i></button>
                 <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
                 <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
             </div>
@@ -93,7 +95,7 @@
         <section class="hero"
             style="min-height: 40vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
             <div class="container" style="text-align: center;">
-                <div class="hero-content" style="margin: 0 auto; color: white;">
+                <div class="hero-content animate-fade-up" style="margin: 0 auto; color: white;">
                     <h1 style="color: white;">Our Services</h1>
                     <p style="margin: 0 auto; color: #e2e8f0;">Comprehensive IT solutions designed for your success.</p>
                 </div>
@@ -102,7 +104,8 @@
 
         <section>
             <div class="container">
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="grid animate-fade-up delay-200"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                     <!-- Service 1 -->
                     <div class="card">
                         <div class="service-icon"><i class='bx bx-laptop'></i></div>
@@ -199,12 +202,24 @@
                     <p>We work with the industry's best standards.</p>
                 </div>
                 <div class="grid" style="grid-template-columns: repeat(6, 1fr); gap: 2rem; align-items: center;">
-                    <div style="font-size: 2.5rem; color: #737373;"><i class='bx bxl-windows'></i></div>
-                    <div style="font-size: 2.5rem; color: #737373;"><i class='bx bxl-apple'></i></div>
-                    <div style="font-size: 2.5rem; color: #737373;"><i class='bx bxl-aws'></i></div>
-                    <div style="font-size: 2.5rem; color: #737373;"><i class='bx bxl-google-cloud'></i></div>
-                    <div style="font-size: 2.5rem; color: #737373;"><i class='bx bxs-data'></i></div>
-                    <div style="font-size: 2.5rem; color: #737373;"><i class='bx bxl-tux'></i></div>
+                    <div style="font-size: 3rem; color: #0078D7; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-windows'></i></div>
+                    <div style="font-size: 3rem; color: #555555; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-apple'></i></div>
+                    <div style="font-size: 3rem; color: #FF9900; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-aws'></i></div>
+                    <div style="font-size: 3rem; color: #4285F4; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-google-cloud'></i></div>
+                    <div style="font-size: 3rem; color: #336791; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxs-data'></i></div>
+                    <div style="font-size: 3rem; color: #E95420; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-tux'></i></div>
                 </div>
             </div>
         </section>
@@ -227,7 +242,8 @@
                 <div class="footer-col">
                     <h3>IT SQUAD</h3>
                     <p style="color: var(--text-muted);">Empowering businesses with top-tier IT support and
-                        infrastructure management.</p>
+                        infrastructure management. We provide reliable, secure, and scalable solutions for companies of
+                        all sizes.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Quick Links</h3>
@@ -236,15 +252,16 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">Help Desk</a></li>
-                        <li><a href="#">Cyber Security</a></li>
-                        <li><a href="#">Cloud Migration</a></li>
-                        <li><a href="#">Network Setup</a></li>
+                        <li><a href="service-details.html">Help Desk</a></li>
+                        <li><a href="service-details.html">Cyber Security</a></li>
+                        <li><a href="service-details.html">Cloud Migration</a></li>
+                        <li><a href="service-details.html">Network Setup</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -254,6 +271,15 @@
                         <li><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
                         <li><i class='bx bx-envelope'></i> support@itsquad.com</li>
                     </ul>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-instagram'></i></a>
+                    </div>
                 </div>
             </div>
             <div class="copyright">

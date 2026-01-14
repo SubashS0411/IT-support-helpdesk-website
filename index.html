@@ -36,13 +36,13 @@
                         </div>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
-                    </li>
+                    <li><a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a></li>
+                    <li><a href="register.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Sign
+                            Up</a></li>
                 </ul>
             </nav>
             <div class="controls">
-                <button id="rtl-toggle" class="btn btn-outline"
-                    style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="rtl-toggle" class="btn-icon-animate" title="RTL Toggle"><i class='bx bx-globe'></i></button>
                 <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
                 <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
             </div>
@@ -53,8 +53,9 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="container flex items-center justify-between gap-4">
-                <div class="hero-content">
-                    <h1>Next Gen IT Support & Helpdesk Solutions</h1>
+                <div class="hero-content animate-fade-up">
+                    <h1 class="text-shine-hover text-xl" style="font-weight: 800;">Next Gen IT Support & Helpdesk
+                        Solutions</h1>
                     <p>We provide 24/7 technical support, cloud infrastructure management, and cybersecurity solutions
                         to keep your business running smoothly.</p>
                     <div class="flex gap-1">
@@ -62,9 +63,9 @@
                         <a href="contact.html" class="btn btn-outline">Contact Us</a>
                     </div>
                 </div>
-                <div class="hero-image">
+                <div class="hero-image animate-fade-up delay-200">
                     <img src="Assets/hero.jpg" alt="IT Support Illustration"
-                        style="border-radius: 20px; box-shadow: var(--shadow); max-width: 500px;">
+                        style="border-radius: 20px; box-shadow: var(--shadow);">
                 </div>
             </div>
         </section>
@@ -73,30 +74,44 @@
         <section>
             <div class="container">
                 <div class="section-title">
-                    <h2>Why Choose Us</h2>
+                    <h2 class="text-shine-hover">Why Choose Us</h2>
                     <p>Delivering excellence in every ticket we resolve.</p>
                 </div>
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <div class="card">
-                        <i class='bx bx-support'
-                            style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <div class="grid animate-fade-up delay-300"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="card card-hover-pop card-vibrant">
+                        <img src="Assets/icon_support_3d.png" alt="Support" class="vibrant-icon">
                         <h3>24/7 Support</h3>
                         <p style="color: var(--text-muted); margin-top: 0.5rem;">Our team is always online to help you
                             with any technical issues, anytime, anywhere.</p>
                     </div>
-                    <div class="card">
-                        <i class='bx bx-shield-quarter'
-                            style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <div class="card card-hover-pop card-vibrant">
+                        <img src="Assets/icon_security_3d.png" alt="Security" class="vibrant-icon">
                         <h3>Cyber Security</h3>
                         <p style="color: var(--text-muted); margin-top: 0.5rem;">Protect your data with our advanced
                             security protocols and monitoring systems.</p>
                     </div>
-                    <div class="card">
-                        <i class='bx bx-server' style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                    <div class="card card-hover-pop card-vibrant">
+                        <img src="Assets/logo_clouddyna.png" alt="Cloud" class="vibrant-icon">
                         <h3>Cloud Solutions</h3>
                         <p style="color: var(--text-muted); margin-top: 0.5rem;">Scalable cloud infrastructure to grow
                             your business without hardware limitations.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section (New) -->
+        <section class="trusted-by">
+            <div class="container">
+                <p
+                    style="text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); font-size: 0.9rem; font-weight: 600;">
+                    Trusted by Industry Leaders</p>
+                <div class="trusted-logos animate-fade-up">
+                    <img src="Assets/logo_techcorp.png" alt="TechCorp">
+                    <img src="Assets/logo_cyberguard.png" alt="CyberGuard">
+                    <img src="Assets/logo_clouddyna.png" alt="CloudDyna">
+                    <img src="Assets/logo_netflow.png" alt="NetFlow">
                 </div>
             </div>
         </section>
@@ -109,7 +124,7 @@
                     <p>Trusted by thousands of businesses worldwide.</p>
                 </div>
                 <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <div class="card">
+                    <div class="card card-hover-pop">
                         <p style="font-style: italic; margin-bottom: 1rem;">"The best IT support we have ever
                             experienced. Fast, reliable, and super friendly team."</p>
                         <div class="flex items-center gap-1">
@@ -121,7 +136,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card card-hover-pop">
                         <p style="font-style: italic; margin-bottom: 1rem;">"They transformed our infrastructure and
                             saved us 30% on operational costs."</p>
                         <div class="flex items-center gap-1">
@@ -133,7 +148,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card card-hover-pop">
                         <p style="font-style: italic; margin-bottom: 1rem;">"Security is no longer a worry for us. IT
                             SQUAD handles everything perfectly."</p>
                         <div class="flex items-center gap-1">
@@ -157,54 +172,43 @@
                     <p>Flexible packages for businesses of all sizes.</p>
                 </div>
                 <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div class="card" style="text-align: center; border: 1px solid var(--border);">
+                    <div class="card pricing-starter" style="text-align: center;">
                         <h3>Starter</h3>
-                        <div style="font-size: 2.5rem; font-weight: 700; margin: 1rem 0; color: var(--primary);">
+                        <div class="price-value" style="font-size: 2.5rem; font-weight: 700; margin: 1rem 0;">
                             $49<span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/mo</span>
                         </div>
                         <ul style="text-align: left; margin: 1.5rem 0;">
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> 24/7 Support</li>
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> Basic Security</li>
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> 5 Users</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> 24/7 Support</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> Basic Security</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> 5 Users</li>
                         </ul>
                         <button class="btn btn-outline" style="width: 100%;">Choose Plan</button>
                     </div>
-                    <div class="card"
-                        style="text-align: center; border: 2px solid var(--primary); transform: scale(1.05); background-color: rgba(79, 70, 229, 0.05);">
-                        <div
-                            style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.8rem;">
+                    <div class="card pricing-pro" style="text-align: center; transform: scale(1.05);">
+                        <div class="pop-badge"
+                            style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 2px 10px; border-radius: 10px; font-size: 0.8rem;">
                             POPULAR</div>
                         <h3>Professional</h3>
-                        <div style="font-size: 2.5rem; font-weight: 700; margin: 1rem 0; color: var(--primary);">
+                        <div class="price-value" style="font-size: 2.5rem; font-weight: 700; margin: 1rem 0;">
                             $99<span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/mo</span>
                         </div>
                         <ul style="text-align: left; margin: 1.5rem 0;">
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> Priority Support</li>
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> Adv Security</li>
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> 20 Users</li>
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> Cloud Backup</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> Priority Support</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> Adv Security</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> 20 Users</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> Cloud Backup</li>
                         </ul>
                         <button class="btn btn-primary" style="width: 100%;">Choose Plan</button>
                     </div>
-                    <div class="card" style="text-align: center; border: 1px solid var(--border);">
+                    <div class="card pricing-enterprise" style="text-align: center;">
                         <h3>Enterprise</h3>
-                        <div style="font-size: 2.5rem; font-weight: 700; margin: 1rem 0; color: var(--primary);">
+                        <div class="price-value" style="font-size: 2.5rem; font-weight: 700; margin: 1rem 0;">
                             $199<span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/mo</span>
                         </div>
                         <ul style="text-align: left; margin: 1.5rem 0;">
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> Dedicated Agent</li>
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> Full Security Suite</li>
-                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'
-                                    style="color: var(--primary);"></i> Unlimited Users</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> Dedicated Agent</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> Full Security Suite</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check'></i> Unlimited Users</li>
                         </ul>
                         <button class="btn btn-outline" style="width: 100%;">Choose Plan</button>
                     </div>
@@ -312,25 +316,25 @@
                 <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
                     <div style="text-align: center;">
                         <img src="https://ui-avatars.com/api/?name=Sarah+Connor&background=random" alt="Expert"
-                            style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover; box-shadow: var(--shadow);">
+                            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem auto; display: block; object-fit: cover; box-shadow: var(--shadow);">
                         <h3 style="font-size: 1.2rem;">Sarah Connor</h3>
                         <p style="color: var(--text-muted); font-size: 0.9rem;">Cyber Security Lead</p>
                     </div>
                     <div style="text-align: center;">
                         <img src="https://ui-avatars.com/api/?name=John+Reese&background=random" alt="Expert"
-                            style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover; box-shadow: var(--shadow);">
+                            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem auto; display: block; object-fit: cover; box-shadow: var(--shadow);">
                         <h3 style="font-size: 1.2rem;">John Reese</h3>
                         <p style="color: var(--text-muted); font-size: 0.9rem;">Cloud Architect</p>
                     </div>
                     <div style="text-align: center;">
                         <img src="https://ui-avatars.com/api/?name=Harold+Finch&background=random" alt="Expert"
-                            style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover; box-shadow: var(--shadow);">
+                            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem auto; display: block; object-fit: cover; box-shadow: var(--shadow);">
                         <h3 style="font-size: 1.2rem;">Harold Finch</h3>
                         <p style="color: var(--text-muted); font-size: 0.9rem;">AI Specialist</p>
                     </div>
                     <div style="text-align: center;">
                         <img src="https://ui-avatars.com/api/?name=Sameen+Shaw&background=random" alt="Expert"
-                            style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover; box-shadow: var(--shadow);">
+                            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem auto; display: block; object-fit: cover; box-shadow: var(--shadow);">
                         <h3 style="font-size: 1.2rem;">Sameen Shaw</h3>
                         <p style="color: var(--text-muted); font-size: 0.9rem;">Network Engineer</p>
                     </div>
@@ -345,7 +349,8 @@
                 <div class="footer-col">
                     <h3>IT SQUAD</h3>
                     <p style="color: var(--text-muted);">Empowering businesses with top-tier IT support and
-                        infrastructure management.</p>
+                        infrastructure management. We provide reliable, secure, and scalable solutions for companies of
+                        all sizes.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Quick Links</h3>
@@ -354,15 +359,16 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">Help Desk</a></li>
-                        <li><a href="#">Cyber Security</a></li>
-                        <li><a href="#">Cloud Migration</a></li>
-                        <li><a href="#">Network Setup</a></li>
+                        <li><a href="service-details.html">Help Desk</a></li>
+                        <li><a href="service-details.html">Cyber Security</a></li>
+                        <li><a href="service-details.html">Cloud Migration</a></li>
+                        <li><a href="service-details.html">Network Setup</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -372,6 +378,15 @@
                         <li><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
                         <li><i class='bx bx-envelope'></i> support@itsquad.com</li>
                     </ul>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-instagram'></i></a>
+                    </div>
                 </div>
             </div>
             <div class="copyright">
