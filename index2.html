@@ -111,7 +111,8 @@
                 </ul>
             </nav>
             <div class="controls">
-                <button id="-toggle" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
                 <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
                 <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
             </div>
@@ -165,7 +166,7 @@
                     <div class="card" style="padding: 0; overflow: hidden;">
                         <div
                             style="height: 200px; background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); display: flex; align-items: center; justify-content: center;">
-                            <img src="Assets/icon_support_3d.png" alt="AI Support" class="vibrant-icon"
+                            <img src="Assets/icon_support_3d.jpg" alt="AI Support" class="vibrant-icon"
                                 style="width: 100px; height: 100px;">
                         </div>
                         <div style="padding: 2rem;">
@@ -178,7 +179,7 @@
                     <div class="card" style="padding: 0; overflow: hidden;">
                         <div
                             style="height: 200px; background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); display: flex; align-items: center; justify-content: center;">
-                            <img src="Assets/icon_security_3d.png" alt="Security" class="vibrant-icon"
+                            <img src="Assets/icon_security_3d.jpg" alt="Security" class="vibrant-icon"
                                 style="width: 100px; height: 100px;">
                         </div>
                         <div style="padding: 2rem;">
@@ -301,19 +302,261 @@
         </section>
 
         <!-- Trusted Partners -->
-        <section>
-            <div class="container" style="text-align: center;">
-                <p style="color: var(--text-muted); font-weight: 600; letter-spacing: 1px; margin-bottom: 2rem;">TRUSTED
-                    BY INDUSTRY LEADERS</p>
-                <div class="flex justify-center" style="gap: 3rem; flex-wrap: wrap; opacity: 0.6;">
-                    <h2 style="color: var(--text-main);">MICROSOFT</h2>
-                    <h2 style="color: var(--text-main);">GOOGLE</h2>
-                    <h2 style="color: var(--text-main);">AMAZON</h2>
-                    <h2 style="color: var(--text-main);">CISCO</h2>
-                    <h2 style="color: var(--text-main);">IBM</h2>
+
+        <!-- Process Timeline -->
+        <section style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Process</h2>
+                    <p>How we deliver excellence, step by step.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; position: relative;">
+                        <div
+                            style="width: 60px; height: 60px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1.5rem; font-weight: 700;">
+                            1</div>
+                        <h3>Consultation</h3>
+                        <p style="color: var(--text-muted);">We analyze your current infrastructure and identify gaps.
+                        </p>
+                    </div>
+                    <div style="text-align: center; position: relative;">
+                        <div
+                            style="width: 60px; height: 60px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1.5rem; font-weight: 700;">
+                            2</div>
+                        <h3>Strategy</h3>
+                        <p style="color: var(--text-muted);">We design a custom roadmap tailored to your business goals.
+                        </p>
+                    </div>
+                    <div style="text-align: center; position: relative;">
+                        <div
+                            style="width: 60px; height: 60px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1.5rem; font-weight: 700;">
+                            3</div>
+                        <h3>Implementation</h3>
+                        <p style="color: var(--text-muted);">Our experts deploy solutions with minimal disruption.</p>
+                    </div>
+                    <div style="text-align: center; position: relative;">
+                        <div
+                            style="width: 60px; height: 60px; background: #10b981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1.5rem; font-weight: 700;">
+                            4</div>
+                        <h3>Optimization</h3>
+                        <p style="color: var(--text-muted);">Continuous monitoring and improvement to ensure peak
+                            performance.</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Meet the Team -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Meet Our Experts</h2>
+                    <p>The minds behind the technology.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=random" alt="Team"
+                            style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1rem;">
+                        <h3>Alex Morgan</h3>
+                        <p style="color: var(--primary); font-weight: 500;">CTO</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Cloud Infrastructure Architect</p>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Lee&background=random" alt="Team"
+                            style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1rem;">
+                        <h3>Sarah Lee</h3>
+                        <p style="color: var(--secondary); font-weight: 500;">Head of Security</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Cybersecurity Specialist</p>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <img src="https://ui-avatars.com/api/?name=David+Kim&background=random" alt="Team"
+                            style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1rem;">
+                        <h3>David Kim</h3>
+                        <p style="color: var(--accent); font-weight: 500;">Lead Developer</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Full Stack Engineer</p>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <img src="https://ui-avatars.com/api/?name=Emily+Chen&background=random" alt="Team"
+                            style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1rem;">
+                        <h3>Emily Chen</h3>
+                        <p style="color: #10b981; font-weight: 500;">Support Manager</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Client Success Lead</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Client Testimonials</h2>
+                    <p>What our partners say about us.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="card">
+                        <div style="display: flex; gap: 0.5rem; color: #f59e0b; margin-bottom: 1rem;">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i
+                                class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                        </div>
+                        <p style="font-style: italic; color: var(--text-muted); margin-bottom: 1.5rem;">"IT SQUAD
+                            transformed our legacy systems into a modern, efficient cloud infrastructure. Their support
+                            is
+                            unmatched."</p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <img src="https://ui-avatars.com/api/?name=Robert+Fox&background=random" alt="Client"
+                                style="width: 40px; height: 40px; border-radius: 50%;">
+                            <div>
+                                <div style="font-weight: 600;">Robert Fox</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">CEO, TechFlow</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div style="display: flex; gap: 0.5rem; color: #f59e0b; margin-bottom: 1rem;">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i
+                                class='bx bxs-star'></i><i class='bx bxs-star-half'></i>
+                        </div>
+                        <p style="font-style: italic; color: var(--text-muted); margin-bottom: 1.5rem;">"We experienced
+                            zero downtime during our migration. The team's expertise and dedication are truly
+                            commendable."
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <img src="https://ui-avatars.com/api/?name=Jenny+Wilson&background=random" alt="Client"
+                                style="width: 40px; height: 40px; border-radius: 50%;">
+                            <div>
+                                <div style="font-weight: 600;">Jenny Wilson</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">CTO, GlobalCorp</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div style="display: flex; gap: 0.5rem; color: #f59e0b; margin-bottom: 1rem;">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i
+                                class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                        </div>
+                        <p style="font-style: italic; color: var(--text-muted); margin-bottom: 1.5rem;">"Best investment
+                            we've made for our IT security. I sleep better at night knowing IT SQUAD is watching over
+                            our
+                            data."</p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <img src="https://ui-avatars.com/api/?name=Guy+Hawkins&background=random" alt="Client"
+                                style="width: 40px; height: 40px; border-radius: 50%;">
+                            <div>
+                                <div style="font-weight: 600;">Guy Hawkins</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Director, SecureNet</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Plans -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Flexible Pricing</h2>
+                    <p>Choose the plan that fits your business needs.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="pricing-card pricing-starter">
+                        <h3 style="font-size: 1.5rem;">Starter</h3>
+                        <div class="price-tag"><span class="price-value">$499</span><span
+                                class="price-period">/mo</span></div>
+                        <ul class="feature-list">
+                            <li><i class='bx bx-check'></i> Basic Network Monitoring</li>
+                            <li><i class='bx bx-check'></i> 8/5 Email Support</li>
+                            <li><i class='bx bx-check'></i> Monthly Security Audits</li>
+                            <li style="opacity: 0.5;"><i class='bx bx-x'></i> 24/7 Phone Support</li>
+                            <li style="opacity: 0.5;"><i class='bx bx-x'></i> Dedicated Account Manager</li>
+                        </ul>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Get Started</button>
+                    </div>
+                    <div class="pricing-card pricing-pro popular">
+                        <span class="badge badge-warning pop-badge"
+                            style="position: absolute; top: 1rem; right: 1rem;">POPULAR</span>
+                        <h3 style="font-size: 1.5rem;">Professional</h3>
+                        <div class="price-tag"><span class="price-value">$999</span><span
+                                class="price-period">/mo</span></div>
+                        <ul class="feature-list">
+                            <li><i class='bx bx-check'></i> Advanced Network Monitoring</li>
+                            <li><i class='bx bx-check'></i> 24/7 Email & Chat Support</li>
+                            <li><i class='bx bx-check'></i> Weekly Security Audits</li>
+                            <li><i class='bx bx-check'></i> Priority Response</li>
+                            <li style="opacity: 0.5;"><i class='bx bx-x'></i> Dedicated Account Manager</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Choose
+                            Professional</button>
+                    </div>
+                    <div class="pricing-card pricing-enterprise">
+                        <h3 style="font-size: 1.5rem;">Enterprise</h3>
+                        <div class="price-tag"><span class="price-value">Custom</span></div>
+                        <ul class="feature-list">
+                            <li><i class='bx bx-check'></i> Full Infrastructure Management</li>
+                            <li><i class='bx bx-check'></i> 24/7 Phone, Email & Chat</li>
+                            <li><i class='bx bx-check'></i> Real-time Threat Detection</li>
+                            <li><i class='bx bx-check'></i> Dedicated Account Manager</li>
+                            <li><i class='bx bx-check'></i> On-site Support</li>
+                        </ul>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Got questions? We've got answers.</p>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <div class="faq-question">What industries do you serve? <i class='bx bx-chevron-down'></i></div>
+                        <div class="faq-answer">We serve a wide range of industries including Finance, Healthcare,
+                            Retail, Manufacturing, and Logistics. Our solutions are adaptable to any sector.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">How does your pricing work? <i class='bx bx-chevron-down'></i></div>
+                        <div class="faq-answer">We offer tiered monthly subscriptions as well as custom enterprise
+                            quotes. You can choose a plan that scales with your business needs without hidden fees.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is my data secure? <i class='bx bx-chevron-down'></i></div>
+                        <div class="faq-answer">Absolutely. Security is our top priority. We employ industry-standard
+                            encryption, regular audits, and Zero Trust architecture to ensure your data stays safe.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can you help migrate from on-premise to cloud? <i
+                                class='bx bx-chevron-down'></i></div>
+                        <div class="faq-answer">Yes, we specialize in cloud migrations. Our team will handle the entire
+                            process, ensuring data integrity and minimal downtime for your operations.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section
+            style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%); color: white; text-align: center; padding: 5rem 0;">
+            <div class="container">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: white;">Ready to Transform Your IT?</h2>
+                <p
+                    style="font-size: 1.25rem; margin-bottom: 2.5rem; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Join hundreds of satisfied companies who trust IT SQUAD for their technology needs. Secure your
+                    future today.</p>
+                <div class="flex justify-center gap-1">
+                    <a href="contact.html" class="btn" style="background: white; color: var(--primary);">Get a Quote</a>
+                    <a href="contact.html" class="btn btn-outline" style="color: white; border-color: white;">Schedule
+                        Consultation</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>

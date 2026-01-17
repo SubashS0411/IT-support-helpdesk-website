@@ -88,13 +88,13 @@
                 <span>John Doe</span>
                 <img src="https://ui-avatars.com/api/?name=John+Doe&background=4F46E5&color=fff" alt="User"
                     style="width: 32px; height: 32px; border-radius: 50%;">
-                <div class="controls" style="display: flex; gap: 0.5rem; align-items: center; margin-left: 1rem;">
-                    <button id="rtl-toggle" class="btn-icon-animate" title="RTL Toggle"><i
-                            class='bx bx-globe'></i></button>
-                    <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
-                    <button id="sidebar-toggle" class="btn btn-outline" style="padding: 5px 10px;"><i
-                            class='bx bx-menu'></i></button>
-                </div>
+            </div>
+            <div class="controls" style="display: flex; gap: 0.5rem; align-items: center;">
+                <button id="rtl-toggle" class="btn-icon-animate" title="RTL Toggle"><i class='bx bx-globe'></i></button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+                <button id="sidebar-toggle" class="btn btn-outline" style="padding: 5px 10px;"><i
+                        class='bx bx-menu-alt-right'></i></button>
             </div>
         </div>
     </header>
@@ -104,7 +104,9 @@
                         class='bx bx-grid-alt'></i>Dashboard</a><a href="#" data-tab="new-ticket-tab"><i
                         class='bx bx-plus-circle'></i>New Ticket</a><a href="#" data-tab="history-tab"><i
                         class='bx bx-history'></i>Ticket History</a><a href="#" data-tab="profile-tab"><i
-                        class='bx bx-user'></i>Profile</a><a href="index.html"><i class='bx bx-log-out'></i>Logout</a>
+                        class='bx bx-user'></i>Profile</a><a href="#" data-tab="messages-tab"><i
+                        class='bx bx-message-rounded-dots'></i>Messages</a><a href="index.html"><i
+                        class='bx bx-log-out'></i>Logout</a>
             </div>
         </aside>
         <main class="main-content">
@@ -193,7 +195,126 @@
                         <h3>Satisfaction Score</h3>
                         <div id="satisfaction-score-chart" style="height: 280px;"></div>
                     </div>
+                    <!-- New Graphs -->
+                    <div class="card">
+                        <h3>Knowledge Base Views</h3>
+                        <div id="kb-views-chart" style="height: 280px;"></div>
+                    </div>
+                    <div class="card">
+                        <h3>First Response Time</h3>
+                        <div id="first-response-chart" style="height: 280px;"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Ticket Priority Breakdown</h3>
+                        <div id="priority-breakdown-chart" style="height: 280px;"></div>
+                    </div>
                 </div>
+
+                <!-- Script for New User Dashboard Charts -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // Common Options
+                        const commonOptions = {
+                            chart: {
+                                fontFamily: 'var(--font-main)',
+                                toolbar: { show: false },
+                                animations: { enabled: true }
+                            },
+                            grid: { borderColor: 'var(--border)', strokeDashArray: 4 },
+                            tooltip: { theme: 'dark' },
+                            legend: { position: 'top', labels: { colors: 'var(--text-muted)' } }
+                        };
+
+                        // 1. Knowledge Base Views (Bar)
+                        const kbOptions = {
+                            ...commonOptions,
+                            series: [{
+                                name: 'Views',
+                                data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+                            }],
+                            chart: {
+                                ...commonOptions.chart,
+                                type: 'bar',
+                                height: 280
+                            },
+                            colors: ['#8B5CF6'],
+                            plotOptions: {
+                                bar: { borderRadius: 4, columnWidth: '60%' }
+                            },
+                            xaxis: {
+                                categories: ['How-to', 'VPN', 'Login', 'Email', 'Printer', 'Software', 'Hardware', 'Mobile', 'Security', 'Network', 'Cloud', 'Other'],
+                                labels: { style: { colors: 'var(--text-muted)' } },
+                                axisBorder: { show: false },
+                                axisTicks: { show: false }
+                            },
+                            yaxis: {
+                                labels: { style: { colors: 'var(--text-muted)' } }
+                            }
+                        };
+                        new ApexCharts(document.querySelector("#kb-views-chart"), kbOptions).render();
+
+                        // 2. First Response Time (Line)
+                        const responseOptions = {
+                            ...commonOptions,
+                            series: [{
+                                name: 'Minutes',
+                                data: [15, 18, 12, 10, 8, 11, 9]
+                            }],
+                            chart: {
+                                ...commonOptions.chart,
+                                type: 'line',
+                                height: 280
+                            },
+                            colors: ['#F59E0B'],
+                            stroke: { curve: 'smooth', width: 3 },
+                            xaxis: {
+                                categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                                labels: { style: { colors: 'var(--text-muted)' } },
+                                axisBorder: { show: false },
+                                axisTicks: { show: false }
+                            },
+                            yaxis: {
+                                title: { text: 'Minutes', style: { color: 'var(--text-muted)' } },
+                                labels: { style: { colors: 'var(--text-muted)' } }
+                            },
+                            markers: { size: 5, hover: { size: 7 } }
+                        };
+                        new ApexCharts(document.querySelector("#first-response-chart"), responseOptions).render();
+
+                        // 3. Ticket Priority Breakdown (Stacked Bar)
+                        const priorityOptions = {
+                            ...commonOptions,
+                            series: [{
+                                name: 'High',
+                                data: [2, 3, 1, 4, 1]
+                            }, {
+                                name: 'Medium',
+                                data: [5, 4, 6, 3, 5]
+                            }, {
+                                name: 'Low',
+                                data: [8, 10, 12, 8, 6]
+                            }],
+                            chart: {
+                                ...commonOptions.chart,
+                                type: 'bar',
+                                height: 280,
+                                stacked: true
+                            },
+                            colors: ['#F43F5E', '#F59E0B', '#10B981'],
+                            xaxis: {
+                                categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+                                labels: { style: { colors: 'var(--text-muted)' } },
+                                axisBorder: { show: false },
+                                axisTicks: { show: false }
+                            },
+                            yaxis: {
+                                labels: { style: { colors: 'var(--text-muted)' } }
+                            },
+                            fill: { opacity: 1 }
+                        };
+                        new ApexCharts(document.querySelector("#priority-breakdown-chart"), priorityOptions).render();
+                    });
+                </script>
                 <!-- Recent Activity -->
                 <div style="margin-bottom: 2rem;">
                     <h3>Recent Activity</h3>
@@ -243,7 +364,7 @@
                     <form>
                         <div class="form-group"><label class="form-label">Subject</label><input type="text"
                                 class="form-control" placeholder="Brief summary of the issue"></div>
-                        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="grid" style="gap: 1rem;">
                             <div class="form-group"><label class="form-label">Category</label><select
                                     class="form-control">
                                     <option>Hardware</option>
@@ -391,6 +512,42 @@
                             <button class="btn btn-primary">Save Changes</button>
                         </form>
                     </div>
+                </div>
+            </div>
+            <!-- Messages Tab (New) -->
+            <div id="messages-tab" class="tab-content" style="display: none;">
+                <h2 style="margin-bottom: 2rem;">My Messages</h2>
+                <div class="card" style="padding: 0;">
+                    <ul style="list-style: none;">
+                        <li style="padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; gap: 1rem;">
+                            <div
+                                style="background: rgba(79, 70, 229, 0.1); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                                <i class='bx bx-support' style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                    <strong>Support Team</strong>
+                                    <span style="color: var(--text-muted); font-size: 0.85rem;">2 hours ago</span>
+                                </div>
+                                <p style="color: var(--text-muted);">Your ticket #1024 has been updated. Please check
+                                    the status.</p>
+                            </div>
+                        </li>
+                        <li style="padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; gap: 1rem;">
+                            <div
+                                style="background: rgba(16, 185, 129, 0.1); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--success);">
+                                <i class='bx bx-check-shield' style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                    <strong>System Admin</strong>
+                                    <span style="color: var(--text-muted); font-size: 0.85rem;">Yesterday</span>
+                                </div>
+                                <p style="color: var(--text-muted);">Your password was successfully changed. If this
+                                    wasn't you, contact us immediately.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </main>
