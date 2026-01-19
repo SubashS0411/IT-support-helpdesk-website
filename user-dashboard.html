@@ -235,9 +235,24 @@
                             chart: {
                                 ...commonOptions.chart,
                                 type: 'bar',
-                                height: 280
+                                height: 280,
+                                events: {
+                                    mouseMove: function(event, chartContext, config) {
+                                        if (config.dataPointIndex !== -1) {
+                                            chartContext.updateOptions({
+                                                dataLabels: { enabled: true }
+                                            }, false, false);
+                                        }
+                                    },
+                                    mouseLeave: function(event, chartContext, config) {
+                                        chartContext.updateOptions({
+                                            dataLabels: { enabled: false }
+                                        }, false, false);
+                                    }
+                                }
                             },
                             colors: ['#8B5CF6'],
+                            dataLabels: { enabled: false },
                             plotOptions: {
                                 bar: { borderRadius: 4, columnWidth: '60%' }
                             },
@@ -263,10 +278,25 @@
                             chart: {
                                 ...commonOptions.chart,
                                 type: 'line',
-                                height: 280
+                                height: 280,
+                                events: {
+                                    mouseMove: function(event, chartContext, config) {
+                                        if (config.dataPointIndex !== -1) {
+                                            chartContext.updateOptions({
+                                                dataLabels: { enabled: true }
+                                            }, false, false);
+                                        }
+                                    },
+                                    mouseLeave: function(event, chartContext, config) {
+                                        chartContext.updateOptions({
+                                            dataLabels: { enabled: false }
+                                        }, false, false);
+                                    }
+                                }
                             },
                             colors: ['#F59E0B'],
                             stroke: { curve: 'smooth', width: 3 },
+                            dataLabels: { enabled: false },
                             xaxis: {
                                 categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                                 labels: { style: { colors: 'var(--text-muted)' } },
@@ -298,9 +328,24 @@
                                 ...commonOptions.chart,
                                 type: 'bar',
                                 height: 280,
+                                events: {
+                                    mouseMove: function(event, chartContext, config) {
+                                        if (config.dataPointIndex !== -1) {
+                                            chartContext.updateOptions({
+                                                dataLabels: { enabled: true }
+                                            }, false, false);
+                                        }
+                                    },
+                                    mouseLeave: function(event, chartContext, config) {
+                                        chartContext.updateOptions({
+                                            dataLabels: { enabled: false }
+                                        }, false, false);
+                                    }
+                                },
                                 stacked: true
                             },
                             colors: ['#F43F5E', '#F59E0B', '#10B981'],
+                            dataLabels: { enabled: false },
                             xaxis: {
                                 categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
                                 labels: { style: { colors: 'var(--text-muted)' } },
