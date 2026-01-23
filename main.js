@@ -236,18 +236,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ...commonOptions,
                 series: [{ name: 'Tickets', data: [31, 40, 28, 51, 42, 109, 100] }],
                 xaxis: { categories: ['8am', '10am', '12pm', '2pm', '4pm', '6pm', '8pm'] },
-                chart: { 
-                    ...commonOptions.chart, 
+                chart: {
+                    ...commonOptions.chart,
                     type: 'area',
                     events: {
-                        mouseMove: function(event, chartContext, config) {
+                        mouseMove: function (event, chartContext, config) {
                             if (config.dataPointIndex !== -1) {
                                 chartContext.updateOptions({
                                     dataLabels: { enabled: true }
                                 }, false, false);
                             }
                         },
-                        mouseLeave: function(event, chartContext, config) {
+                        mouseLeave: function (event, chartContext, config) {
                             chartContext.updateOptions({
                                 dataLabels: { enabled: false }
                             }, false, false);
@@ -265,18 +265,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ...commonOptions,
                 series: [{ name: 'New Users', data: [44, 55, 57, 56, 61, 58, 63, 60, 66] }],
                 xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'] },
-                chart: { 
-                    ...commonOptions.chart, 
+                chart: {
+                    ...commonOptions.chart,
                     type: 'bar',
                     events: {
-                        mouseMove: function(event, chartContext, config) {
+                        mouseMove: function (event, chartContext, config) {
                             if (config.dataPointIndex !== -1) {
                                 chartContext.updateOptions({
                                     dataLabels: { enabled: true }
                                 }, false, false);
                             }
                         },
-                        mouseLeave: function(event, chartContext, config) {
+                        mouseLeave: function (event, chartContext, config) {
                             chartContext.updateOptions({
                                 dataLabels: { enabled: false }
                             }, false, false);
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             charts.sla.render();
-            
+
             // Add hover event to show labels
             slaChart.addEventListener('mouseenter', () => {
                 charts.sla.updateOptions({
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dataLabels: { enabled: false }
             });
             charts.deptDist.render();
-            
+
             // Add hover event to show labels
             deptChart.addEventListener('mouseenter', () => {
                 charts.deptDist.updateOptions({ dataLabels: { enabled: true } }, false, false);
@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dataLabels: { enabled: false }
             });
             charts.agentStatus.render();
-            
+
             // Add hover event to show labels
             statusChart.addEventListener('mouseenter', () => {
                 charts.agentStatus.updateOptions({ dataLabels: { enabled: true } }, false, false);
@@ -372,18 +372,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ...commonOptions,
                 series: [{ name: 'Avg Hours', data: [4.5, 3.8, 5.2, 4.1, 3.5, 3.2, 2.8] }],
                 xaxis: { categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] },
-                chart: { 
-                    ...commonOptions.chart, 
+                chart: {
+                    ...commonOptions.chart,
                     type: 'area',
                     events: {
-                        mouseMove: function(event, chartContext, config) {
+                        mouseMove: function (event, chartContext, config) {
                             if (config.dataPointIndex !== -1) {
                                 chartContext.updateOptions({
                                     dataLabels: { enabled: true }
                                 }, false, false);
                             }
                         },
-                        mouseLeave: function(event, chartContext, config) {
+                        mouseLeave: function (event, chartContext, config) {
                             chartContext.updateOptions({
                                 dataLabels: { enabled: false }
                             }, false, false);
@@ -403,18 +403,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ...commonOptions,
                 series: [{ name: 'Tickets', data: [4, 6, 3, 8, 5, 7] }],
                 xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
-                chart: { 
-                    ...commonOptions.chart, 
+                chart: {
+                    ...commonOptions.chart,
                     type: 'bar',
                     events: {
-                        mouseMove: function(event, chartContext, config) {
+                        mouseMove: function (event, chartContext, config) {
                             if (config.dataPointIndex !== -1) {
                                 chartContext.updateOptions({
                                     dataLabels: { enabled: true }
                                 }, false, false);
                             }
                         },
-                        mouseLeave: function(event, chartContext, config) {
+                        mouseLeave: function (event, chartContext, config) {
                             chartContext.updateOptions({
                                 dataLabels: { enabled: false }
                             }, false, false);
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dataLabels: { enabled: false }
             });
             charts.ticketDist.render();
-            
+
             // Add hover event to show labels
             ticketChart.addEventListener('mouseenter', () => {
                 charts.ticketDist.updateOptions({ dataLabels: { enabled: true } }, false, false);
@@ -453,18 +453,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ...commonOptions,
                 series: [{ name: 'Resolved', data: [10, 15, 8, 20, 18, 25, 30] }],
                 xaxis: { categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] },
-                chart: { 
-                    ...commonOptions.chart, 
+                chart: {
+                    ...commonOptions.chart,
                     type: 'area',
                     events: {
-                        mouseMove: function(event, chartContext, config) {
+                        mouseMove: function (event, chartContext, config) {
                             if (config.dataPointIndex !== -1) {
                                 chartContext.updateOptions({
                                     dataLabels: { enabled: true }
                                 }, false, false);
                             }
                         },
-                        mouseLeave: function(event, chartContext, config) {
+                        mouseLeave: function (event, chartContext, config) {
                             chartContext.updateOptions({
                                 dataLabels: { enabled: false }
                             }, false, false);
@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dataLabels: { enabled: false }
             });
             charts.requestTypes.render();
-            
+
             // Add hover event to show labels
             reqChart.addEventListener('mouseenter', () => {
                 charts.requestTypes.updateOptions({ dataLabels: { enabled: true } }, false, false);
@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dataLabels: { enabled: false }
             });
             charts.supportChannels.render();
-            
+
             // Add hover event to show labels
             supportChart.addEventListener('mouseenter', () => {
                 charts.supportChannels.updateOptions({ dataLabels: { enabled: true } }, false, false);
@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             charts.satisfaction.render();
-            
+
             // Add hover event to show labels
             satisfactionChart.addEventListener('mouseenter', () => {
                 charts.satisfaction.updateOptions({

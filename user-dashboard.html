@@ -49,6 +49,23 @@
             background-color: rgba(34, 197, 94, 0.1);
             color: #22c55e;
         }
+
+        /* Smooth Scroll & Section Styling */
+        .main-content {
+            scroll-behavior: smooth;
+        }
+
+        .dashboard-section {
+            scroll-margin-top: 2rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .main-content {
+                scroll-behavior: auto;
+            }
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
@@ -57,7 +74,8 @@
     <header>
         <div class="container flex justify-between items-center">
             <a href="index.html" class="logo">
-                <i class='bx bx-code-block'></i> IT SQUAD
+                <i class='bx bx-code-block'></i> IT SQUAD <span
+                    style="font-size: 0.7rem; background: var(--accent); color: white; padding: 2px 6px; border-radius: 4px; margin-left: 5px;">USER</span>
             </a>
             <nav>
                 <ul class="nav-links">
@@ -100,22 +118,22 @@
     </header>
     <div class="dashboard-container">
         <aside class="sidebar">
-            <div class="sidebar-menu"><a href="#" class="active" data-tab="dashboard-tab"><i
-                        class='bx bx-grid-alt'></i>Dashboard</a><a href="#" data-tab="new-ticket-tab"><i
-                        class='bx bx-plus-circle'></i>New Ticket</a><a href="#" data-tab="history-tab"><i
-                        class='bx bx-history'></i>Ticket History</a><a href="#" data-tab="profile-tab"><i
-                        class='bx bx-user'></i>Profile</a><a href="#" data-tab="messages-tab"><i
-                        class='bx bx-message-rounded-dots'></i>Messages</a><a href="index.html"><i
-                        class='bx bx-log-out'></i>Logout</a>
+            <div class="sidebar-menu">
+                <a href="#dashboard-section" class="nav-link active"><i class='bx bx-grid-alt'></i>Dashboard</a>
+                <a href="#new-ticket-section" class="nav-link"><i class='bx bx-plus-circle'></i>New Ticket</a>
+                <a href="#history-section" class="nav-link"><i class='bx bx-history'></i>Ticket History</a>
+                <a href="#profile-section" class="nav-link"><i class='bx bx-user'></i>Profile</a>
+                <a href="#messages-section" class="nav-link"><i class='bx bx-message-rounded-dots'></i>Messages</a>
+                <a href="index.html"><i class='bx bx-log-out'></i>Logout</a>
             </div>
         </aside>
         <main class="main-content">
-            <!-- Dashboard Tab -->
-            <div id="dashboard-tab" class="tab-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="dashboard-section">
                 <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
-                    <h2>My Dashboard</h2><button class="btn btn-primary"
-                        onclick="document.querySelector('[data-tab=\'new-ticket-tab\']').click()"><i
-                            class='bx bx-plus'></i>New Support Ticket</button>
+                    <h2>My Dashboard</h2>
+                    <a href="#new-ticket-section" class="btn btn-primary"><i class='bx bx-plus'></i>New Support
+                        Ticket</a>
                 </div>
                 <!-- Stats -->
                 <div class="grid"
@@ -237,14 +255,14 @@
                                 type: 'bar',
                                 height: 280,
                                 events: {
-                                    mouseMove: function(event, chartContext, config) {
+                                    mouseMove: function (event, chartContext, config) {
                                         if (config.dataPointIndex !== -1) {
                                             chartContext.updateOptions({
                                                 dataLabels: { enabled: true }
                                             }, false, false);
                                         }
                                     },
-                                    mouseLeave: function(event, chartContext, config) {
+                                    mouseLeave: function (event, chartContext, config) {
                                         chartContext.updateOptions({
                                             dataLabels: { enabled: false }
                                         }, false, false);
@@ -280,14 +298,14 @@
                                 type: 'line',
                                 height: 280,
                                 events: {
-                                    mouseMove: function(event, chartContext, config) {
+                                    mouseMove: function (event, chartContext, config) {
                                         if (config.dataPointIndex !== -1) {
                                             chartContext.updateOptions({
                                                 dataLabels: { enabled: true }
                                             }, false, false);
                                         }
                                     },
-                                    mouseLeave: function(event, chartContext, config) {
+                                    mouseLeave: function (event, chartContext, config) {
                                         chartContext.updateOptions({
                                             dataLabels: { enabled: false }
                                         }, false, false);
@@ -329,14 +347,14 @@
                                 type: 'bar',
                                 height: 280,
                                 events: {
-                                    mouseMove: function(event, chartContext, config) {
+                                    mouseMove: function (event, chartContext, config) {
                                         if (config.dataPointIndex !== -1) {
                                             chartContext.updateOptions({
                                                 dataLabels: { enabled: true }
                                             }, false, false);
                                         }
                                     },
-                                    mouseLeave: function(event, chartContext, config) {
+                                    mouseLeave: function (event, chartContext, config) {
                                         chartContext.updateOptions({
                                             dataLabels: { enabled: false }
                                         }, false, false);
@@ -400,9 +418,9 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!-- New Ticket Tab -->
-            <div id="new-ticket-tab" class="tab-content" style="display: none;">
+            </section>
+            <!-- New Ticket Section -->
+            <section id="new-ticket-section" class="dashboard-section">
                 <h2 style="margin-bottom: 2rem;">Create New Ticket</h2>
                 <div class="card bg-subtle-info" style="max-width: 800px; margin: 0 auto;">
                     <!-- Light Indigo Shade -->
@@ -442,9 +460,9 @@
                                 class="btn btn-primary">Submit Ticket</button></div>
                     </form>
                 </div>
-            </div>
-            <!-- Ticket History Tab -->
-            <div id="history-tab" class="tab-content" style="display: none;">
+            </section>
+            <!-- Ticket History Section -->
+            <section id="history-section" class="dashboard-section">
                 <h2 style="margin-bottom: 2rem;">Ticket History</h2>
                 <div class="card bg-subtle-info">
                     <!-- Very light slate -->
@@ -517,9 +535,9 @@
                     <div class="pagination"><a href="#" class="page-link active">1</a><a href="#"
                             class="page-link">2</a><a href="#" class="page-link">3</a></div>
                 </div>
-            </div>
-            <!-- Profile Tab -->
-            <div id="profile-tab" class="tab-content" style="display: none;">
+            </section>
+            <!-- Profile Section -->
+            <section id="profile-section" class="dashboard-section">
                 <h2 style="margin-bottom: 2rem;">My Profile</h2>
                 <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                     <div class="card bg-subtle-info" style="text-align: center;">
@@ -558,9 +576,9 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <!-- Messages Tab (New) -->
-            <div id="messages-tab" class="tab-content" style="display: none;">
+            </section>
+            <!-- Messages Section -->
+            <section id="messages-section" class="dashboard-section">
                 <h2 style="margin-bottom: 2rem;">My Messages</h2>
                 <div class="card" style="padding: 0;">
                     <ul style="list-style: none;">
@@ -594,13 +612,14 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </section>
             <footer style="margin-top: 3rem; border-top: 1px solid var(--border); padding: 2rem 1rem;">
                 <div style="max-width: 100%; margin: 0; padding: 0 1rem;">
                     <div class="footer-grid">
                         <div class="footer-col">
                             <h3>IT SQUAD</h3>
-                            <p style="color: var(--text-muted); margin: 0;">Empowering businesses with top-tier IT support and infrastructure management.</p>
+                            <p style="color: var(--text-muted); margin: 0;">Empowering businesses with top-tier IT
+                                support and infrastructure management.</p>
                         </div>
                         <div class="footer-col">
                             <h3>Quick Links</h3>
@@ -616,21 +635,26 @@
                             <h3>Services</h3>
                             <ul style="list-style: none; padding: 0; margin: 0;">
                                 <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Help Desk</a></li>
-                                <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Cyber Security</a></li>
-                                <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Cloud Migration</a></li>
+                                <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Cyber Security</a>
+                                </li>
+                                <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Cloud Migration</a>
+                                </li>
                                 <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Network Setup</a></li>
                             </ul>
                         </div>
                         <div class="footer-col">
                             <h3>Contact</h3>
                             <ul style="list-style: none; padding: 0; margin: 0;">
-                                <li style="margin-bottom: 0.5rem;"><i class='bx bx-map'></i> 123 Innovation Drive, Tech City, CA</li>
+                                <li style="margin-bottom: 0.5rem;"><i class='bx bx-map'></i> 123 Innovation Drive, Tech
+                                    City, CA</li>
                                 <li style="margin-bottom: 0.5rem;"><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
-                                <li style="margin-bottom: 0.5rem;"><i class='bx bx-envelope'></i> support@itsquad.com</li>
+                                <li style="margin-bottom: 0.5rem;"><i class='bx bx-envelope'></i> support@itsquad.com
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="copyright" style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 2rem;">
+                    <div class="copyright"
+                        style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 2rem;">
                         <p style="margin: 0;">&copy; 2026 IT SQUAD. All rights reserved.</p>
                     </div>
                 </div>
@@ -638,6 +662,42 @@
         </main>
     </div>
     <script src="main.js"></script>
+    <script>
+        // ScrollSpy Logic
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainContent = document.querySelector('.main-content');
+            const sections = document.querySelectorAll('.dashboard-section');
+            const navLinks = document.querySelectorAll('.sidebar-menu .nav-link');
+
+            function activeLink() {
+                let index = sections.length;
+
+                while (--index && mainContent.scrollTop + 100 < sections[index].offsetTop) { }
+
+                navLinks.forEach((link) => link.classList.remove('active'));
+                if (index >= 0) {
+                    // Check if scroll is at bottom
+                    if (mainContent.scrollHeight - mainContent.scrollTop === mainContent.clientHeight) {
+                        navLinks[navLinks.length - 1].classList.add('active'); // Activate last link
+                    } else {
+                        // Match based on ID
+                        const currentId = sections[index].id;
+                        const matchingLink = document.querySelector(`.sidebar-menu .nav-link[href="#${currentId}"]`);
+                        if (matchingLink) matchingLink.classList.add('active');
+                    }
+                }
+            }
+
+            // Debounce scroll event
+            let timeout;
+            mainContent.addEventListener('scroll', () => {
+                if (timeout) clearTimeout(timeout);
+                timeout = setTimeout(activeLink, 50);
+            });
+
+            activeLink(); // Initial check
+        });
+    </script>
     <script src="rtltoggle.js"></script>
     <div class="sidebar-overlay"></div>
 </body>

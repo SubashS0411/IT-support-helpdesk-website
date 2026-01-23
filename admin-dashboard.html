@@ -27,6 +27,33 @@
             background-color: var(--bg-body);
             font-weight: 600;
         }
+
+        /* Smooth Scroll & Section Styling */
+        .main-content {
+            scroll-behavior: smooth;
+        }
+
+        /* Standard Sections */
+        .dashboard-section {
+            scroll-margin-top: 2rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Sub-sections (like in Users tab) */
+        .dashboard-sub-section {
+            scroll-margin-top: 4rem;
+            /* More offset for sub-sections if needed */
+            margin-bottom: 0.75rem;
+            display: block !important;
+            /* Ensure visibility */
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .main-content {
+                scroll-behavior: auto;
+            }
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
@@ -77,23 +104,24 @@
     </header>
     <div class="dashboard-container">
         <aside class="sidebar">
-            <div class="sidebar-menu"><a href="#" class="active" data-tab="overview-tab"><i
-                        class='bx bx-grid-alt'></i>Overview</a><a href="#" data-tab="all-tickets-tab"><i
-                        class='bx bx-ticket'></i>All Tickets</a><a href="#" data-tab="infrastructure-tab"><i
-                        class='bx bx-server'></i>Infrastructure</a><a href="#" data-tab="users-tab"><i
-                        class='bx bx-user-pin'></i>Users</a><a href="#" data-tab="settings-tab"><i
-                        class='bx bx-cog'></i>Settings</a><a href="index.html"><i class='bx bx-log-out'></i>Logout</a>
+            <div class="sidebar-menu">
+                <a href="#overview-section" class="nav-link active"><i class='bx bx-grid-alt'></i>Overview</a>
+                <a href="#all-tickets-section" class="nav-link"><i class='bx bx-ticket'></i>All Tickets</a>
+                <a href="#users-section" class="nav-link"><i class='bx bx-user-pin'></i>Users</a>
+                <a href="#infrastructure-section" class="nav-link"><i class='bx bx-server'></i>Infrastructure</a>
+                <a href="#settings-section" class="nav-link"><i class='bx bx-cog'></i>Settings</a>
+                <a href="index.html"><i class='bx bx-log-out'></i>Logout</a>
             </div>
         </aside>
         <main class="main-content">
-            <!-- Overview Tab -->
-            <div id="overview-tab" class="tab-content">
+            <!-- Overview Section -->
+            <section id="overview-section" class="dashboard-section">
                 <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
                     <h2>System Overview</h2>
                     <div class="flex gap-1"><button class="btn btn-outline" style="font-size: 0.9rem;">Download
-                            Report</button><button class="btn btn-primary" style="font-size: 0.9rem;"
-                            onclick="document.querySelector('[data-tab=\'settings-tab\']').click()">System
-                            Settings</button></div>
+                            Report</button><a href="#settings-section" class="btn btn-primary"
+                            style="font-size: 0.9rem;">System
+                            Settings</a></div>
                 </div>
                 <!-- Stats Grid -->
                 <!-- [Existing Stats Grid Content - Keeping mostly same] -->
@@ -222,14 +250,14 @@
                                 toolbar: { show: false },
                                 fontFamily: 'var(--font-main)',
                                 events: {
-                                    mouseMove: function(event, chartContext, config) {
+                                    mouseMove: function (event, chartContext, config) {
                                         if (config.dataPointIndex !== -1) {
                                             chartContext.updateOptions({
                                                 dataLabels: { enabled: true }
                                             }, false, false);
                                         }
                                     },
-                                    mouseLeave: function(event, chartContext, config) {
+                                    mouseLeave: function (event, chartContext, config) {
                                         chartContext.updateOptions({
                                             dataLabels: { enabled: false }
                                         }, false, false);
@@ -273,14 +301,14 @@
                                 fontFamily: 'var(--font-main)',
                                 toolbar: { show: false },
                                 events: {
-                                    mouseMove: function(event, chartContext, config) {
+                                    mouseMove: function (event, chartContext, config) {
                                         if (config.dataPointIndex !== -1) {
                                             chartContext.updateOptions({
                                                 dataLabels: { enabled: true }
                                             }, false, false);
                                         }
                                     },
-                                    mouseLeave: function(event, chartContext, config) {
+                                    mouseLeave: function (event, chartContext, config) {
                                         chartContext.updateOptions({
                                             dataLabels: { enabled: false }
                                         }, false, false);
@@ -330,14 +358,14 @@
                                 fontFamily: 'var(--font-main)',
                                 toolbar: { show: false },
                                 events: {
-                                    mouseMove: function(event, chartContext, config) {
+                                    mouseMove: function (event, chartContext, config) {
                                         if (config.dataPointIndex !== -1) {
                                             chartContext.updateOptions({
                                                 dataLabels: { enabled: true }
                                             }, false, false);
                                         }
                                     },
-                                    mouseLeave: function(event, chartContext, config) {
+                                    mouseLeave: function (event, chartContext, config) {
                                         chartContext.updateOptions({
                                             dataLabels: { enabled: false }
                                         }, false, false);
@@ -375,14 +403,14 @@
                                 toolbar: { show: false },
                                 animations: { enabled: true, easing: 'linear', dynamicAnimation: { speed: 1000 } },
                                 events: {
-                                    mouseMove: function(event, chartContext, config) {
+                                    mouseMove: function (event, chartContext, config) {
                                         if (config.dataPointIndex !== -1) {
                                             chartContext.updateOptions({
                                                 dataLabels: { enabled: true }
                                             }, false, false);
                                         }
                                     },
-                                    mouseLeave: function(event, chartContext, config) {
+                                    mouseLeave: function (event, chartContext, config) {
                                         chartContext.updateOptions({
                                             dataLabels: { enabled: false }
                                         }, false, false);
@@ -424,14 +452,14 @@
                                 toolbar: { show: false },
                                 stacked: true,
                                 events: {
-                                    mouseMove: function(event, chartContext, config) {
+                                    mouseMove: function (event, chartContext, config) {
                                         if (config.dataPointIndex !== -1) {
                                             chartContext.updateOptions({
                                                 dataLabels: { enabled: true }
                                             }, false, false);
                                         }
                                     },
-                                    mouseLeave: function(event, chartContext, config) {
+                                    mouseLeave: function (event, chartContext, config) {
                                         chartContext.updateOptions({
                                             dataLabels: { enabled: false }
                                         }, false, false);
@@ -634,9 +662,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <!-- All Tickets Tab -->
-            <div id="all-tickets-tab" class="tab-content" style="display: none;">
+            </section>
+            <!-- All Tickets Section -->
+            <section id="all-tickets-section" class="dashboard-section">
                 <h2 style="margin-bottom: 2rem;">Manage All Tickets</h2>
                 <div class="card bg-subtle-info">
                     <div class="flex justify-between items-center"
@@ -718,9 +746,9 @@
                         </table>
                     </div>
                 </div>
-            </div>
-            <!-- Users Tab -->
-            <div id="users-tab" class="tab-content" style="display: none;">
+            </section>
+            <!-- Users Section -->
+            <section id="users-section" class="dashboard-section">
                 <div class="flex justify-between items-center" style="margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
                     <h2>User Management</h2>
                     <div class="flex gap-1">
@@ -736,15 +764,14 @@
 
                 <div class="sub-tab-nav"
                     style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border);">
-                    <a href="#" class="active" data-sub-tab="all-users-sub"
+                    <a href="#all-users-sub" class="active"
                         style="padding: 0.75rem 0; border-bottom: 2px solid var(--primary); color: var(--primary); font-weight: 600;">All
                         Users</a>
-                    <a href="#" data-sub-tab="access-requests-sub"
-                        style="padding: 0.75rem 0; color: var(--text-muted);">Access
+                    <a href="#access-requests-sub" style="padding: 0.75rem 0; color: var(--text-muted);">Access
                         Requests</a>
                 </div>
 
-                <div id="all-users-sub" class="sub-tab-content">
+                <div id="all-users-sub" class="dashboard-sub-section">
                     <div class="table-responsive">
                         <table class="table" style="width: 100%;">
                             <thead>
@@ -855,7 +882,7 @@
                     </div>
                 </div>
 
-                <div id="access-requests-sub" class="sub-tab-content" style="display: none;">
+                <div id="access-requests-sub" class="dashboard-sub-section">
                     <div class="card bg-subtle-info">
                         <h3 style="margin-bottom: 1rem;">Pending Access Requests</h3>
                         <p style="color: var(--text-muted); margin-bottom: 1rem;">The following users have requested
@@ -879,21 +906,55 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="settings-tab" class="tab-content" style="display: none;">
+            </section>
+            <!-- Infrastructure Section -->
+            <section id="infrastructure-section" class="dashboard-section">
+                <h2 style="margin-bottom: 2rem;">Network Infrastructure</h2>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div class="card" style="grid-column: 1 / -1;">
+                        <img src="Assets/network_infrastructure.jpg" alt="Network Infrastructure"
+                            style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 2rem;">
+                        <div class="flex justify-between items-center" style="margin-bottom: 1.5rem;">
+                            <h3>System Architecture Overview</h3>
+                            <span class="badge badge-success">Operational</span>
+                        </div>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+                            Our core network infrastructure is designed for 99.99% uptime. Featuring redundant fiber
+                            uplinks,
+                            enterprise-grade edge security, and distributed computing nodes across three major regions.
+                        </p>
+                        <div class="grid"
+                            style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div class="bg-subtle-info" style="padding: 1rem; border-radius: 8px;">
+                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Core Load</div>
+                                <div style="font-size: 1.5rem; font-weight: 700;">32%</div>
+                            </div>
+                            <div class="bg-subtle-success" style="padding: 1rem; border-radius: 8px;">
+                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Uptime</div>
+                                <div style="font-size: 1.5rem; font-weight: 700;">99.9%</div>
+                            </div>
+                            <div class="bg-subtle-warning" style="padding: 1rem; border-radius: 8px;">
+                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Active Nodes</div>
+                                <div style="font-size: 1.5rem; font-weight: 700;">12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Settings Section -->
+            <section id="settings-section" class="dashboard-section">
                 <h2 style="margin-bottom: 2rem;">System Settings</h2>
 
                 <div class="sub-tab-nav"
                     style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border);">
-                    <a href="#" class="active" data-sub-tab="general-settings-sub"
+                    <a href="#general-settings-sub" class="active"
                         style="padding: 0.75rem 0; border-bottom: 2px solid var(--primary); color: var(--primary); font-weight: 600;">General</a>
-                    <a href="#" data-sub-tab="security-settings-sub"
-                        style="padding: 0.75rem 0; color: var(--text-muted);">Security</a>
-                    <a href="#" data-sub-tab="integrations-settings-sub"
+                    <a href="#security-settings-sub" style="padding: 0.75rem 0; color: var(--text-muted);">Security</a>
+                    <a href="#integrations-settings-sub"
                         style="padding: 0.75rem 0; color: var(--text-muted);">Integrations</a>
                 </div>
 
-                <div id="general-settings-sub" class="sub-tab-content">
+                <div id="general-settings-sub" class="dashboard-sub-section">
                     <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
                         <!-- General Settings -->
                         <div class="card">
@@ -956,7 +1017,7 @@
                     </div>
                 </div>
 
-                <div id="security-settings-sub" class="sub-tab-content" style="display: none;">
+                <div id="security-settings-sub" class="dashboard-sub-section">
                     <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
                         <!-- Security Settings -->
                         <div class="card">
@@ -994,7 +1055,7 @@
                     </div>
                 </div>
 
-                <div id="integrations-settings-sub" class="sub-tab-content" style="display: none;">
+                <div id="integrations-settings-sub" class="dashboard-sub-section">
                     <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
                         <div class="card">
                             <div class="flex items-center gap-1" style="margin-bottom: 1.5rem;">
@@ -1034,9 +1095,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Reports Tab (New) -->
-            <div id="reports-tab" class="tab-content" style="display: none;">
+            </section>
+            <!-- Reports Section -->
+            <section id="reports-section" class="dashboard-section">
                 <h2 style="margin-bottom: 2rem;">System Reports</h2>
                 <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
                     <div class="card bg-subtle-info">
@@ -1084,47 +1145,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Infrastructure Tab -->
-            <div id="infrastructure-tab" class="tab-content" style="display: none;">
-                <h2 style="margin-bottom: 2rem;">Network Infrastructure</h2>
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-                    <div class="card" style="grid-column: 1 / -1;">
-                        <img src="Assets/network_infrastructure.jpg" alt="Network Infrastructure"
-                            style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 2rem;">
-                        <div class="flex justify-between items-center" style="margin-bottom: 1.5rem;">
-                            <h3>System Architecture Overview</h3>
-                            <span class="badge badge-success">Operational</span>
-                        </div>
-                        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-                            Our core network infrastructure is designed for 99.99% uptime. Featuring redundant fiber
-                            uplinks,
-                            enterprise-grade edge security, and distributed computing nodes across three major regions.
-                        </p>
-                        <div class="grid"
-                            style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                            <div class="bg-subtle-info" style="padding: 1rem; border-radius: 8px;">
-                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Core Load</div>
-                                <div style="font-size: 1.5rem; font-weight: 700;">32%</div>
-                            </div>
-                            <div class="bg-subtle-success" style="padding: 1rem; border-radius: 8px;">
-                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Uptime</div>
-                                <div style="font-size: 1.5rem; font-weight: 700;">99.9%</div>
-                            </div>
-                            <div class="bg-subtle-warning" style="padding: 1rem; border-radius: 8px;">
-                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Active Nodes</div>
-                                <div style="font-size: 1.5rem; font-weight: 700;">12</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
             <footer style="margin-top: 3rem; border-top: 1px solid var(--border); padding: 2rem 1rem;">
                 <div style="max-width: 100%; margin: 0; padding: 0 1rem;">
                     <div class="footer-grid">
                         <div class="footer-col">
                             <h3>IT SQUAD</h3>
-                            <p style="color: var(--text-muted); margin: 0;">Empowering businesses with top-tier IT support and infrastructure management.</p>
+                            <p style="color: var(--text-muted); margin: 0;">Empowering businesses with top-tier IT
+                                support and infrastructure management.</p>
                         </div>
                         <div class="footer-col">
                             <h3>Quick Links</h3>
@@ -1140,21 +1168,26 @@
                             <h3>Services</h3>
                             <ul style="list-style: none; padding: 0; margin: 0;">
                                 <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Help Desk</a></li>
-                                <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Cyber Security</a></li>
-                                <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Cloud Migration</a></li>
+                                <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Cyber Security</a>
+                                </li>
+                                <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Cloud Migration</a>
+                                </li>
                                 <li style="margin-bottom: 0.5rem;"><a href="service-details.html">Network Setup</a></li>
                             </ul>
                         </div>
                         <div class="footer-col">
                             <h3>Contact</h3>
                             <ul style="list-style: none; padding: 0; margin: 0;">
-                                <li style="margin-bottom: 0.5rem;"><i class='bx bx-map'></i> 123 Innovation Drive, Tech City, CA</li>
+                                <li style="margin-bottom: 0.5rem;"><i class='bx bx-map'></i> 123 Innovation Drive, Tech
+                                    City, CA</li>
                                 <li style="margin-bottom: 0.5rem;"><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
-                                <li style="margin-bottom: 0.5rem;"><i class='bx bx-envelope'></i> support@itsquad.com</li>
+                                <li style="margin-bottom: 0.5rem;"><i class='bx bx-envelope'></i> support@itsquad.com
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="copyright" style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 2rem;">
+                    <div class="copyright"
+                        style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 2rem;">
                         <p style="margin: 0;">&copy; 2026 IT SQUAD. All rights reserved.</p>
                     </div>
                 </div>
@@ -1187,6 +1220,75 @@
     </div>
 
     <script src="main.js"></script>
+    <script>
+        // ScrollSpy Logic
+        // ScrollSpy Logic
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainContent = document.querySelector('.main-content');
+            // Select both main sections and sub-sections for tracking
+            const sections = document.querySelectorAll('.dashboard-section, .dashboard-sub-section');
+            // Select both sidebar links and sub-tab links
+            const navLinks = document.querySelectorAll('.sidebar-menu .nav-link, .sub-tab-nav a');
+
+            function activeLink() {
+                let index = sections.length;
+
+                // Find the section that is currently in view
+                while (--index && mainContent.scrollTop + 150 < sections[index].offsetTop) { }
+
+                if (index >= 0) {
+                    const currentId = sections[index].id;
+
+                    // Remove active class from all links first to be safe, or manage them smarter
+                    // Ideally we only want to deactivate links that are siblings/related
+                    // For simplicity, let's target specific groups based on the current ID
+
+                    // Logic: 
+                    // 1. If current section is a main section (e.g. overview-section), active sidebar link
+                    // 2. If current section is a sub-section (e.g. all-users-sub), activate its sub-tab link AND the parent sidebar link (users-section)
+
+                    navLinks.forEach((link) => {
+                        link.classList.remove('active');
+                        // Restore active state to sidebar if we are deeply scrolled? 
+                        // Actually, plain removeAll is okay if we re-add correctly below
+                    });
+
+                    // Reactivate the correct links
+                    if (currentId) {
+                        // Activate matching link (could be sidebar or sub-tab)
+                        const matchingLink = document.querySelector(`a[href="#${currentId}"]`);
+                        if (matchingLink) {
+                            matchingLink.classList.add('active');
+
+                            // If it's a sub-section link, we also need to keep the parent Sidebar link active
+                            // heuristic: finding the "closest" parent section logic or hardcoding mapping
+                            if (currentId.includes('-sub')) {
+                                // Hardcoded mapping for stability
+                                if (currentId.includes('user')) document.querySelector('a[href="#users-section"]').classList.add('active');
+                                if (currentId.includes('settings')) document.querySelector('a[href="#settings-section"]').classList.add('active');
+                            }
+                        } else {
+                            // If no direct link (maybe scrolled past), try to keep sidebar active?
+                            // For now, rely on strict ID matching
+                        }
+
+                        // Fallback: If we are in a sub-section but the specific sub-section link isn't found (rare),
+                        // ensure the main sidebar link is active.
+                        if (currentId.includes('user') && !currentId.includes('sub')) document.querySelector('a[href="#users-section"]').classList.add('active');
+                    }
+                }
+            }
+
+            // Debounce scroll event
+            let timeout;
+            mainContent.addEventListener('scroll', () => {
+                if (timeout) clearTimeout(timeout);
+                timeout = setTimeout(activeLink, 50);
+            });
+
+            activeLink(); // Initial check
+        });
+    </script>
     <script src="rtltoggle.js"></script>
     <div class="sidebar-overlay"></div>
 </body>
